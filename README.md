@@ -1,4 +1,4 @@
-# ECS Course Repository: Exploring Computer Science
+# ECS Course Repository
 
 Welcome to the official workspace for the Exploring Computer Science (ECS) curriculum! This repository hosts starter templates, assignment guides, and live project demos designed specifically for Math 1 freshmen.
 
