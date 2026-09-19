@@ -13,6 +13,6 @@ Welcome to the official workspace for the Exploring Computer Science (ECS) curri
 * `/templates/` — Starter code for student projects (HTML, CSS, Python)
 * `/docs/` — Resources for this repo
 * `/examples/` — Example outputs
-* `/mascots/` — finished mascot layouts
+* `/cogs/` — finished cog layouts
 ---
 *Maintained for 9th & 10th Grade ECS Students*
