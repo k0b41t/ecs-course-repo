@@ -1,6 +1,6 @@
 # ECS Course Repository
 
-Welcome to the official workspace for the Exploring Computer Science (ECS) curriculum! This repository hosts starter templates, assignment guides, and live project demos designed specifically for Math 1 freshmen.
+Welcome to the official workspace for the Exploring Computer Science (ECS) curriculum! This repository hosts starter templates, assignment guides, and live project demos. This is a living repository that will reflect the most current version of the course.
 
 ## What We Build
 * **Web Portfolios & Digital Pets:** Building multi-page sites with custom CSS Tamagotchi mascots, hosted live globally using **GitHub Pages**.
