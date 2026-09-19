@@ -1,60 +1,268 @@
 <!DOCTYPE html>
-<html>
+<html style="scroll-behavior: smooth;">
 	<head>
-		<!-- Website Title -->	
-		<title>My First Website Template</title>
-		<!-- We need this line to import the checkboxes used in the checklist below -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Exploring Computer Science | Course Hub</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Knewave&family=Rock+Salt&family=Special+Elite&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				--ecs-black: #040404;
+				--ecs-cyan: #46D2FF;
+				--ecs-indigo: #4040C8;
+				--ecs-pink: #FF46D2;
+				--primary-color: var(--ecs-indigo);
+			}
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			body {
+				width: 100%;
+				font-family: 'Special Elite', monospace;
+				background-color: var(--ecs-black);
+				color: #FFF;
+			}
+			section {
+				min-height: 100vh;
+				padding: 3rem 1rem;
+			}
+			hr {
+				height: 3px;
+				margin: 0.5rem 0.0rem 1.0rem 0.0rem;
+				background-color: black;
+				border: none;
+			}
+
+			/* Typography */
+			h1, .fs-1 { font-size: 3.0rem; line-height: 3.5rem; }
+			h2, .fs-2 { font-size: 2.2rem; line-height: 2.7rem; }
+			h3, .fs-3 { font-size: 1.8rem; line-height: 2.2rem; }
+			h4, .fs-4 { font-size: 1.3rem; line-height: 1.8rem; }
+			
+			.text-center { text-align: center; }
+			.text-left { text-align: left; }
+			.rock-salt { font-family: 'Rock Salt', cursive; }
+			.special-elite { font-family: 'Special Elite', monospace; }
+			.knewave { font-family: 'Knewave', cursive; }
+
+			/* Layout Utilities */
+			.w-50 { width: 50%; }
+			.w-66 { width: 66%; }
+			.w-80 { width: 80%; }
+			.w-100 { width: 100%; }
+			.mx-auto { margin-left: auto; margin-right: auto; }
+			.my-3 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+			.py-2 { padding-top: 1.0rem; padding-bottom: 1.0rem; }
+			
+			.slide {
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.grid-2 {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 1.5rem;
+				width: 85%;
+				margin: 0 auto;
+			}
+
+			/* Background Themes */
+			.bg-comp {
+				border-left: 48px solid #090909;
+				background-color: var(--primary-color);
+				background-image: url('blank-white-comp-BG.png');
+				background-size: cover;
+				background-position: center;
+			}
+			.bg-lined-paper {
+				background-color: var(--ecs-black);
+				background-image: url('composition-page.png');
+				background-size: 100% auto;
+				background-position: top left;
+			}
+
+			/* Custom Labels and Cards */
+			.black-label, .white-label {
+				padding: 1.5rem;
+				border-radius: 1.25rem;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+			}
+			.black-label {
+				background-color: var(--ecs-black);
+				color: #FFF;
+			}
+			.white-label {
+				background-color: #FFF;
+				color: var(--ecs-black);
+			}
+			.inner-label {
+				padding: 1.0rem;
+				text-align: center;
+				border-radius: 1.0rem;
+				border: 4px solid currentColor;
+			}
+
+			/* Directory & Unit Cards */
+			.unit-card {
+				background-color: #FFF;
+				color: var(--ecs-black);
+				border: 4px solid var(--ecs-black);
+				border-radius: 12px;
+				padding: 1.25rem;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+			}
+			.unit-card h3 {
+				color: var(--ecs-indigo);
+				margin-bottom: 0.5rem;
+			}
+			.unit-tag {
+				display: inline-block;
+				background-color: var(--ecs-pink);
+				color: white;
+				padding: 2px 8px;
+				border-radius: 4px;
+				font-size: 0.9rem;
+				margin-bottom: 0.5rem;
+			}
+			
+			/* Dynamic Demo Cog Box */
+			.cog-demo {
+				background-color: var(--ecs-pink);
+				border: 4px solid var(--ecs-black);
+				border-radius: 12px;
+				padding: 1rem;
+				text-align: center;
+				color: white;
+			}
+			
+			@media (max-width: 768px) {
+				.w-50, .w-66, .w-80 { width: 95%; }
+				.bg-comp { border-left: 16px solid #090909; }
+			}
+		</style>
 	</head>
 	<body>
-    		<section style="width: 100%; height: 100vh; margin: 0; padding: 0; background-color: #fff;">
-			<div style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);  width: 66%;">
-				<div style="text-align: center; color: #000; background-color: #FFF; border-radius: 1.0rem;">
-					<h2 style=" letter-spacing: 1px; font-size: 42px; margin: 0;">Scoring Checklist</h2>
-				</div>
-				<br>
-				<div style="color: #FFF; background-color: #000; border-radius: 1.0rem;">
-					<table style="width: 100%; padding: 0 3rem;">
-						<tr style="font-size: 20pt;">
-							<td style="width: 50%;">
-								<ul style="list-style-type: none;">
-									<li><i style="margin-right: 8px;" class="fa-regular fa-square-check"></i>Website Title</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Header 1</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Header 2</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Header 3</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Paragraph</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Bold Text</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Italicized Text</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Image</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Line Break</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Horizontal Line</li>
-								</ul>
-							</td>
-							<td style="width: 50%; padding-right: 1rem;">
-								<ul style="list-style-type: none;">
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Link 1</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Link 2</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Link 3</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Unordered List</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Ordered List</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Table</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Custom Color</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Custom Background Color</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Custom Font</li>
-									<li><i style="margin-right: 8px;" class="fa-solid fa-square"></i>Custom Font  Size</li>
-								</ul>
-							</td>
-						</tr>
-					</table>
+
+		<!-- Hero Section -->
+		<section class="slide bg-comp">
+			<div class="white-label w-66 mx-auto text-center">
+				<div class="inner-label">
+					<h1 class="knewave py-2" style="color: var(--ecs-indigo);">EXPLORING COMPUTER SCIENCE</h1>
+					<hr>
+					<p class="fs-2 rock-salt">Course Hub & Repository Docs</p>
+					<p class="fs-4 special-elite my-3">Designed for 9th & 10th Grade Math 1 Freshmen | Building Digital Creators</p>
 				</div>
 			</div>
 		</section>
+
+		<!-- Course Philosophy & AI Vision -->
+		<section class="bg-lined-paper rock-salt">
+			<div class="w-80 mx-auto py-2">
+				<div class="black-label my-3">
+					<div class="inner-label text-left special-elite">
+						<h2 class="text-center rock-salt py-2" style="color: var(--ecs-cyan);">Course Philosophy & Applied AI</h2>
+						<p class="fs-4 py-2">
+							This course transitions students from digital consumers to computational builders. Designed specifically alongside <b>Math 1 Algebra standards</b>, students use modern tools without getting bogged down by high-level math theory.
+						</p>
+						<p class="fs-4 py-2">
+							<b>Our AI Approach: "Use, Don't Build (Yet)."</b> Rather than writing complex machine learning models, students leverage generative AI as an everyday coding co-pilot, learn where models physically execute on hardware GPUs, evaluate AI safety/ethics, and train lightweight visual tools like Google Teachable Machine.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 6-Unit Curriculum Map -->
+		<section class="slide bg-comp">
+			<div class="w-100">
+				<div class="white-label w-50 mx-auto my-3">
+					<div class="inner-label">
+						<h2 class="knewave fs-2">6-Unit Curriculum Map</h2>
+					</div>
+				</div>
+
+				<div class="grid-2 special-elite">
+					<!-- Unit 1 -->
+					<div class="unit-card">
+						<span class="unit-tag">Weeks 1–8</span>
+						<h3>Unit 1: Web Dev & Digital Cogs</h3>
+						<p>HTML5, CSS3 styling, and <code>&lt;div&gt;</code> box models. Students deploy a live GitHub Pages portfolio featuring their custom interactive Digital Cog mascot right away!</p>
+					</div>
+					<!-- Unit 2 -->
+					<div class="unit-card">
+						<span class="unit-tag">Weeks 9–13</span>
+						<h3>Unit 2: PC Hardware & AI Execution</h3>
+						<p>Hardware components (CPU, RAM, Storage, GPU), teardowns, and component specs. Students analyze where AI runs locally versus cloud data centers.</p>
+					</div>
+					<!-- Unit 3 -->
+					<div class="unit-card">
+						<span class="unit-tag">Weeks 14–18</span>
+						<h3>Unit 3: Cyber Safety & Ethics</h3>
+						<p>Password security, phishing detection, spotting AI deepfakes, and safe web practices. Understanding public vs. private GitHub repository controls.</p>
+					</div>
+					<!-- Unit 4 -->
+					<div class="unit-card">
+						<span class="unit-tag">Weeks 19–25</span>
+						<h3>Unit 4: Python Programming Basics</h3>
+						<p>Variables, inputs, logic conditionals (<code>if/else</code>), and math equations. Building text adventure games and terminal pet logic linked to algebra concepts.</p>
+					</div>
+					<!-- Unit 5 -->
+					<div class="unit-card">
+						<span class="unit-tag">Weeks 26–31</span>
+						<h3>Unit 5: Physical Computing</h3>
+						<p>BBC micro:bit hardware, LED displays, sensors, and basic circuits. Linking physical buttons and gesture models via Teachable Machine to hardware actions.</p>
+					</div>
+					<!-- Unit 6 -->
+					<div class="unit-card">
+						<span class="unit-tag">Weeks 32–36</span>
+						<h3>Unit 6: The Cog Ecosystem</h3>
+						<p>Course capstone! Integrating web design, hardware teardown records, Python logic, and micro:bit status into a polished final portfolio showcase.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Repository Architecture Section -->
+		<section class="bg-lined-paper special-elite">
+			<div class="w-80 mx-auto">
+				<div class="black-label my-3">
+					<div class="inner-label text-left">
+						<h2 class="text-center rock-salt py-2" style="color: var(--ecs-pink);">Repository Architecture</h2>
+						<p class="fs-4 text-center my-3">Pathways inside the official <code>ecs-course-repo</code>:</p>
+						
+						<div class="grid-2 my-3">
+							<div style="background: #111; padding: 1rem; border-radius: 8px; border: 2px solid var(--ecs-cyan);">
+								<h4 style="color: var(--ecs-cyan);">/templates/</h4>
+								<p>Starter code files for student assignments across HTML, CSS, and Python.</p>
+							</div>
+							<div style="background: #111; padding: 1rem; border-radius: 8px; border: 2px solid var(--ecs-pink);">
+								<h4 style="color: var(--ecs-pink);">/docs/</h4>
+								<p>Curriculum guidelines, scoring checklists, and repository reference materials.</p>
+							</div>
+							<div style="background: #111; padding: 1rem; border-radius: 8px; border: 2px solid var(--ecs-cyan);">
+								<h4 style="color: var(--ecs-cyan);">/examples/</h4>
+								<p>Completed project samples and working code outputs for student demonstration.</p>
+							</div>
+							<div style="background: #111; padding: 1rem; border-radius: 8px; border: 2px solid var(--ecs-pink);">
+								<h4 style="color: var(--ecs-pink);">/cogs/</h4>
+								<p>Finished student Cog layouts, custom CSS stylesheets, and pet configurations.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 	</body>
 </html>
-
-
-
-
-
-
-
